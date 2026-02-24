@@ -67,15 +67,19 @@ export default function App() {
     return () => clearInterval(interval);
   }, [started, completed]);
 
-  useEffect(() => {
-    if (score === TOTAL) {
-      setCompleted(true);
-      if (timer < highScore || highScore === 0) {
-        localStorage.setItem("highScore", timer);
-        setHighScore(timer);
-      }
+
+
+ useEffect(() => {
+  if (score === TOTAL) {
+    setCompleted(true);
+    if (timer < highScore || highScore === 0) {
+      localStorage.setItem("highScore", timer);
+      setHighScore(timer);
     }
-  }, [score]);
+  }
+}, [score, TOTAL, timer, highScore]);
+
+
 
   const resetGame = () => {
     const shuffled = shuffle(allLanguages).map((lang) => ({
