@@ -97,7 +97,6 @@ export default function App() {
 
   const handleDrop = (e, category) => {
     const name = e.dataTransfer.getData("text");
-    const item = items.find((i) => i.name === name);
 
     if (!started) setStarted(true);
 
@@ -115,6 +114,8 @@ export default function App() {
       setTimeout(() => setMessage(""), 1000);
     }
   };
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6">
